@@ -1,5 +1,4 @@
-import os
-import asyncio
+import os, asyncio, argparse
 from dotenv import load_dotenv
 from agents import Agent, Runner
 
@@ -11,7 +10,8 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 if not openai_api_key:
     raise ValueError("OPENAI_API_KEY not found in environment variables.")
 
-print("Environment successfully loaded.")
+print(" -----------------------------------")
+print(" ✅ Environment successfully loaded.")
 
 # Define the Fact Checker agent instructions
 fact_checker_instructions = """
@@ -33,20 +33,31 @@ fact_checker_agent = Agent(
     model="gpt-4.1-mini"
 )
 
-print(f"Agent '{fact_checker_agent.name}' created successfully!")
+print(f" ✅ Agent '{fact_checker_agent.name}' created successfully!")
+print(" -----------------------------------")
 
-statement = "The Great Wall of China is visible from space with the naked eye."
+async def main(fact):
+    try:
+        if not fact:
+            raise ValueError("No fact provided for verification.")
+        
+        print(f" 🔍 Asking the Fact Checker to verify: '{fact}'")
 
-async def main():
-    print(f"Asking the Fact Checker to verify: '{statement}'")
+        response = await Runner.run(
+            starting_agent=fact_checker_agent,
+            input=fact
+        )
 
-    response = await Runner.run(
-        starting_agent=fact_checker_agent,
-        input=statement
-    )
-
-    print("\n--- 🤖 AGENT'S RESPONSE ---\n")
-    print(response.final_output)
+        print("\n--- 🤖 AGENT'S RESPONSE ---\n")
+        print(response.final_output)
+        print("\n--- 🤖 END OF AGENT'S RESPONSE ---\n")
+    except Exception as e:
+        print(f"❌ An error occurred: {e}")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    parser = argparse.ArgumentParser(description="Fact Checker")
+    parser.add_argument("--fact", type=str, help="The statement to verify")
+    args = parser.parse_args()
+
+    fact = args.fact
+    asyncio.run(main(fact))

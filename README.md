@@ -15,11 +15,9 @@ This project demonstrates:
 ## 🚀 Project Overview
 
 This program creates a **Fact Checker Agent** that:
-
 * Accepts a statement as input
 * Evaluates its factual accuracy
 * Responds with:
-
   * ✅ TRUE + explanation
   * ❌ FALSE + explanation
 
@@ -113,19 +111,23 @@ venv/
 ## ▶️ Running the Program
 
 ```bash
-python app.py
+python app.py --fact "<RANDOM STATEMENT THAT NEEDS VERFICATION"
 ```
 
 You should see:
 
 ```
-Environment successfully loaded.
-Agent 'Fact Checker' created successfully!
-Asking the Fact Checker to verify: '...'
+ -----------------------------------
+ ✅ Environment successfully loaded.
+ ✅ Agent 'Fact Checker' created successfully!
+ -----------------------------------
+ 🔍 Asking the Fact Checker to verify:: '...'
 
 --- 🤖 AGENT'S RESPONSE ---
 
 ❌ FALSE: ...
+
+--- 🤖 END OF AGENT'S RESPONSE ---
 ```
 
 ---
