@@ -111,7 +111,7 @@ venv/
 ## ▶️ Running the Program
 
 ```bash
-python app.py --fact "<RANDOM STATEMENT THAT NEEDS VERFICATION"
+python app.py --fact "<RANDOM STATEMENT THAT NEEDS VERFICATION>"
 ```
 
 You should see:
