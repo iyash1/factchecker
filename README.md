@@ -1,6 +1,6 @@
 # 🧠 AI Fact Checker Agent (OpenAI SDK + Agents)
 
-A simple AI Agent built using the OpenAI Agents SDK that verifies the factual accuracy of statements.
+A simple AI Agent built using the OpenAI Agents SDK that verifies the factual accuracy of statements. This agent has no memory, tools, planning or guardrails.
 
 This project demonstrates:
 
