@@ -61,16 +61,16 @@ ai-fact-checker/
 
 ```bash
 git clone https://github.com/iyash1/factchecker.git
-cd ai-fact-checker
+cd factchecker
 ```
 
 ### 2️⃣ Create a Conda Environment
 ```bash
-conda create -n ai-fact-checker python=3.11
+conda create -n factchecker python=3.12
 ```
 Activate it:
 ```bash
-conda activate ai-fact-checker
+conda activate factchecker
 ```
 ### 3️⃣ Install dependencies
 
