@@ -62,7 +62,7 @@ ai-fact-checker/
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/iyash1/factchecker.git
 cd ai-fact-checker
 ```
 
